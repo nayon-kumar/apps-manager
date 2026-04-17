@@ -19,27 +19,30 @@ const SmallMenu = () => {
       </div>
       <div>
         <div
-          className={`px-5 py-5 absolute bg-linear-to-r from-[#632EE3] to-[#9F62F2] w-full transition-all duration-300 ease-in-out ${open ? "top-20.5 left-0" : "top-20.5 -left-200 "}`}
+          className={`px-5 py-5 absolute bg-linear-to-r from-[#632EE3] to-[#9F62F2] w-full transition-all duration-300 ease-in-out ${open ? "top-20.5 left-0" : "top-20.5 -left-200"}`}
         >
           <ul className="text-white font-semibold space-y-3">
-            <li
+            <Link
+              href="/"
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/" ? "bg-gray-300" : ""}`}
+              className={`block bg-black px-5 py-2 rounded-lg ${pathName === "/" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/">Home</Link>
-            </li>
-            <li
+              Home
+            </Link>
+            <Link
+              href="/apps"
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/apps" ? "bg-gray-300" : ""}`}
+              className={`block bg-black px-5 py-2 rounded-lg ${pathName === "/apps" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/apps">Apps</Link>
-            </li>
-            <li
+              Apps
+            </Link>
+            <Link
+              href="/installation"
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/installation" ? "bg-gray-300" : ""}`}
+              className={`block bg-black px-5 py-2 rounded-lg ${pathName === "/installation" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/installation">Installation</Link>
-            </li>
+              Installation
+            </Link>
           </ul>
         </div>
       </div>
