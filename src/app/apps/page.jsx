@@ -3,15 +3,14 @@ import React from "react";
 
 const AppsPage = () => {
   return (
-    <div className="pt-30 bg-[#F1F5E8]">
+    <div className="pt-40 bg-[#F1F5E8]">
       <MyContainer>
         <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-bold">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#001931]">
             Our All Applications
           </h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-            eius.
+          <p className="mt-4 text-[#627382]">
+            Explore All Apps on the Market developed by us. We code for Millions
           </p>
         </div>
       </MyContainer>
