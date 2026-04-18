@@ -1,5 +1,6 @@
 import Banner from "@/components/Home/Banner";
 import Status from "@/components/Home/Status";
+import TrendingApps from "@/components/Home/TrendingApps";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <main>
         <Banner />
         <Status />
+        <TrendingApps />
       </main>
     </div>
   );

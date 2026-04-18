@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="bg-[#001931] text-white pt-8.75 pb-7.5 ">
       <MyContainer>
-        <div className="flex items-center justify-between">
+        <div className="flex gap-5 flex-wrap items-center justify-between">
           <Link href="/" className="flex items-center gap-1">
             <Image
               src={logo}
