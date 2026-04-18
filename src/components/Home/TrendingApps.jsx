@@ -10,7 +10,7 @@ const TrendingApps = () => {
   const allApps = use(appsPromise);
   console.log(allApps);
   return (
-    <div className="pt-20 bg-[#F1F5E8]">
+    <div className="py-20 bg-[#F1F5E8]">
       <MyContainer>
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-[#001931]">
@@ -20,7 +20,7 @@ const TrendingApps = () => {
             Explore All Trending Apps on the Market developed by us
           </p>
         </div>
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {allApps.map((app) => (
             <AppCard key={app.id} app={app} />
           ))}

@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks";
 import SmallMenu from "./SmallMenu";
 const Navbar = () => {
   return (
-    <div className="shadow-lg fixed w-full bg-white">
+    <div className="shadow-lg fixed w-full bg-white z-20">
       <MyContainer>
         <div className="py-5 flex sm:gap-5 items-center justify-between">
           {/* Left side */}
