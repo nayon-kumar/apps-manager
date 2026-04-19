@@ -8,7 +8,6 @@ const appsPromise = fetch("http://localhost:3000/data.json").then((res) =>
 
 const TrendingApps = () => {
   const allApps = use(appsPromise);
-  console.log(allApps);
   return (
     <div className="py-20 bg-[#F1F5E8]">
       <MyContainer>
