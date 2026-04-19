@@ -7,7 +7,7 @@ import { LuDownload } from "react-icons/lu";
 const AppCard = ({ app }) => {
   return (
     <Link
-      href="/"
+      href={`/details/${app.id}`}
       className="bg-white p-4 rounded-sm border border-gray-300 shadow hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl"
     >
       <Image
