@@ -1,7 +1,11 @@
+"use client";
 import MyContainer from "@/components/Shared/MyContainer";
-import React from "react";
+import { MyContext } from "@/context/AppsContext";
+import React, { useContext } from "react";
 
-const page = () => {
+const Installation = () => {
+  const { apps, setApps } = useContext(MyContext);
+  console.log(apps);
   return (
     <div className="pt-40 bg-[#F1F5E8]">
       <MyContainer>
@@ -18,4 +22,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Installation;

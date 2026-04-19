@@ -1,26 +1,34 @@
 "use client";
 import MyContainer from "@/components/Shared/MyContainer";
+import { MyContext } from "@/context/AppsContext";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import React, { use } from "react";
+import React, { use, useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
+import { toast } from "react-toastify";
 
 const appsPromise = fetch("http://localhost:3000/data.json").then((res) =>
   res.json(),
 );
 
 const DetailsPage = () => {
-  const allApps = use(appsPromise);
-  const { id } = useParams();
-  const expectedApp = allApps.find((app) => app.id == id);
+  const { apps, setApps } = useContext(MyContext);
+  const handleClick = (newApp) => {
+    toast.success(`${newApp.title} Installed!`, { position: "bottom-center" });
+    setApps([...apps, newApp]);
+  };
 
+  const allApps = use(appsPromise);
+
+  const { id } = useParams();
+
+  const expectedApp = allApps.find((app) => app.id == id);
+  const isInstalled = apps.some((app) => app.id === expectedApp.id);
   const totalRating = expectedApp.ratings.reduce(
     (sum, item) => sum + item.count,
     0,
   );
-  console.log(totalRating);
-  console.log(expectedApp);
   return (
     <div className="pt-40 pb-20 bg-[#F1F5E8]">
       <MyContainer>
@@ -67,8 +75,14 @@ const DetailsPage = () => {
                 </h3>
               </div>
             </div>
-            <button className="btn bg-[#00D390] text-white mt-7.5">
-              Install Now ({expectedApp.size} MB)
+            <button
+              disabled={isInstalled}
+              onClick={() => handleClick(expectedApp)}
+              className={`btn text-white mt-7.5 ${isInstalled ? "" : "bg-[#00D390]"}`}
+            >
+              {isInstalled
+                ? "Installed"
+                : `Install Now (${expectedApp.size} MB)`}
             </button>
           </div>
         </div>
