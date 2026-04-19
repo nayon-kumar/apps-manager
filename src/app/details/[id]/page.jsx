@@ -104,7 +104,7 @@ const DetailsPage = () => {
         </div>
         <div>
           <h3 className="font-semibold text-2xl text-[#001931]">Description</h3>
-          <p className="text-[#627382] text-xl mt-6">
+          <p className="text-[#627382] text-xl mt-6 text-justify">
             {expectedApp.description}
           </p>
         </div>
