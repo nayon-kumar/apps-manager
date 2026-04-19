@@ -1,6 +1,7 @@
 "use client";
 import MyContainer from "@/components/Shared/MyContainer";
 import { MyContext } from "@/context/AppsContext";
+import InstalledAppCard from "@/ui/InstalledAppCard";
 import React, { useContext } from "react";
 
 const Installation = () => {
@@ -16,6 +17,16 @@ const Installation = () => {
           <p className="text-[#627382] mt-4">
             Explore All Trending Apps on the Market developed by us
           </p>
+        </div>
+        <div className="mt-10 pb-20">
+          <p className="font-semibold text-[#001931] text-2xl">
+            ({apps.length}) Apps Found
+          </p>
+          <div className="mt-6 flex flex-col gap-4">
+            {apps.map((app) => (
+              <InstalledAppCard key={app.id} app={app} />
+            ))}
+          </div>
         </div>
       </MyContainer>
     </div>
