@@ -3,6 +3,7 @@ import MyContainer from "@/components/Shared/MyContainer";
 import { MyContext } from "@/context/AppsContext";
 import InstalledAppCard from "@/ui/InstalledAppCard";
 import React, { useContext } from "react";
+import { CiFileOn } from "react-icons/ci";
 
 const Installation = () => {
   const { apps, setApps } = useContext(MyContext);
@@ -21,11 +22,22 @@ const Installation = () => {
           <p className="font-semibold text-[#001931] text-2xl">
             ({apps.length}) Apps Found
           </p>
-          <div className="mt-6 flex flex-col gap-4">
-            {apps.map((app) => (
-              <InstalledAppCard key={app.id} app={app} />
-            ))}
-          </div>
+          {apps.length > 0 ? (
+            <>
+              <div className="mt-6 flex flex-col gap-4">
+                {apps.map((app) => (
+                  <InstalledAppCard key={app.id} app={app} />
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="mt-10 text-gray-500 flex flex-col items-center justify-center">
+                <CiFileOn size={140} />
+                <p className="mt-4">No intalled apps found!</p>
+              </div>
+            </>
+          )}
         </div>
       </MyContainer>
     </div>
