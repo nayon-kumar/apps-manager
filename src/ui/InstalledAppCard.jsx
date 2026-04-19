@@ -3,10 +3,14 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
+import { toast } from "react-toastify";
 
 const InstalledAppCard = ({ app }) => {
   const { apps, setApps } = useContext(MyContext);
   const handleClick = (deleteApp) => {
+    toast.success(`${deleteApp.title} Uninstalled!`, {
+      position: "bottom-center",
+    });
     const filteredApps = apps.filter(
       (appSingle) => appSingle.id != deleteApp.id,
     );
