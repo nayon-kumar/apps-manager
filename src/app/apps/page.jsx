@@ -1,13 +1,15 @@
 import MyContainer from "@/components/Shared/MyContainer";
 import AppCard from "@/ui/AppCard";
 import React, { use } from "react";
+import data from "../../../public/data.json";
 
-const appsPromise = fetch("http://localhost:3000/data.json", {
-  cache: "no-store",
-}).then((res) => res.json());
+// const appsPromise = fetch("http://localhost:3000/data.json", {
+//   cache: "no-store",
+// }).then((res) => res.json());
 
 const AppsPage = () => {
-  const allApps = use(appsPromise);
+  // const allApps = use(appsPromise);
+  const allApps = data;
   return (
     <div className="pt-40 bg-[#F1F5E8]">
       <MyContainer>

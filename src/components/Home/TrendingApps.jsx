@@ -2,13 +2,15 @@ import React, { use } from "react";
 import MyContainer from "../Shared/MyContainer";
 import AppCard from "@/ui/AppCard";
 import Link from "next/link";
+import data from "../../../public/data.json";
 
-const appsPromise = fetch("http://localhost:3000/data.json", {
-  cache: "no-store",
-}).then((res) => res.json());
+// const appsPromise = fetch("http://localhost:3000/data.json", {
+//   cache: "no-store",
+// }).then((res) => res.json());
 
 const TrendingApps = () => {
-  const allApps = use(appsPromise);
+  // const allApps = use(appsPromise);
+  const allApps = data;
   return (
     <div className="py-20 bg-[#F1F5E8]">
       <MyContainer>
