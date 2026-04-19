@@ -8,9 +8,9 @@ import { FaStar } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
 import { toast } from "react-toastify";
 
-const appsPromise = fetch("http://localhost:3000/data.json").then((res) =>
-  res.json(),
-);
+const appsPromise = fetch("http://localhost:3000/data.json", {
+  cache: "no-store",
+}).then((res) => res.json());
 
 const DetailsPage = () => {
   const { apps, setApps } = useContext(MyContext);
@@ -118,7 +118,7 @@ const DetailsPage = () => {
         </div>
         <div>
           <h3 className="font-semibold text-2xl text-[#001931]">Description</h3>
-          <p className="text-[#627382] text-xl mt-6 text-justify">
+          <p className="text-[#627382] mt-6 text-justify">
             {expectedApp.description}
           </p>
         </div>

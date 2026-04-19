@@ -19,7 +19,7 @@ const Installation = () => {
           </p>
         </div>
         <div className="mt-10 pb-20">
-          <p className="font-semibold text-[#001931] text-2xl">
+          <p className="font-semibold text-[#001931] text-xl md:text-2xl">
             ({apps.length}) Apps Found
           </p>
           {apps.length > 0 ? (

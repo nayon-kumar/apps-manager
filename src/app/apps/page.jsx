@@ -2,9 +2,9 @@ import MyContainer from "@/components/Shared/MyContainer";
 import AppCard from "@/ui/AppCard";
 import React, { use } from "react";
 
-const appsPromise = fetch("http://localhost:3000/data.json").then((res) =>
-  res.json(),
-);
+const appsPromise = fetch("http://localhost:3000/data.json", {
+  cache: "no-store",
+}).then((res) => res.json());
 
 const AppsPage = () => {
   const allApps = use(appsPromise);
@@ -20,7 +20,7 @@ const AppsPage = () => {
           </p>
         </div>
         <div className="pb-20">
-          <h3 className="font-semibold text-[#001931] mt-10  text-2xl">
+          <h3 className="font-semibold text-[#001931] mt-10 text-xl md:text-2xl">
             ({allApps.length}) Apps Found
           </h3>
           <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

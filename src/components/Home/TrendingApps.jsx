@@ -3,9 +3,9 @@ import MyContainer from "../Shared/MyContainer";
 import AppCard from "@/ui/AppCard";
 import Link from "next/link";
 
-const appsPromise = fetch("http://localhost:3000/data.json").then((res) =>
-  res.json(),
-);
+const appsPromise = fetch("http://localhost:3000/data.json", {
+  cache: "no-store",
+}).then((res) => res.json());
 
 const TrendingApps = () => {
   const allApps = use(appsPromise);
