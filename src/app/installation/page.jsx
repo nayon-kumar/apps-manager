@@ -6,7 +6,6 @@ import React, { useContext } from "react";
 
 const Installation = () => {
   const { apps, setApps } = useContext(MyContext);
-  console.log(apps);
   return (
     <div className="pt-40 bg-[#F1F5E8]">
       <MyContainer>

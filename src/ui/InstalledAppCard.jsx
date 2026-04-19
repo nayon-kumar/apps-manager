@@ -1,9 +1,18 @@
+import { MyContext } from "@/context/AppsContext";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
 
 const InstalledAppCard = ({ app }) => {
+  const { apps, setApps } = useContext(MyContext);
+  const handleClick = (deleteApp) => {
+    const filteredApps = apps.filter(
+      (appSingle) => appSingle.id != deleteApp.id,
+    );
+    setApps(filteredApps);
+  };
+
   return (
     <div className="flex gap-4 items-center justify-between bg-white p-4 rounded-lg">
       <div className="flex gap-4 items-center">
@@ -34,7 +43,12 @@ const InstalledAppCard = ({ app }) => {
         </div>
       </div>
       <div>
-        <button className="btn bg-[#00D390] text-white ">Uninstall</button>
+        <button
+          onClick={() => handleClick(app)}
+          className="btn bg-[#00D390] text-white "
+        >
+          Uninstall
+        </button>
       </div>
     </div>
   );
