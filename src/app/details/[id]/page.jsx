@@ -7,11 +7,10 @@ import React, { use, useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
 import { toast } from "react-toastify";
-import data from "../../../../public/data.json";
 
-// const appsPromise = fetch("http://localhost:3000/data.json", {
-//   cache: "no-store",
-// }).then((res) => res.json());
+const appsPromise = fetch("https://apps-manager-eta.vercel.app/data.json", {
+  cache: "no-store",
+}).then((res) => res.json());
 
 const DetailsPage = () => {
   const { apps, setApps } = useContext(MyContext);
@@ -20,8 +19,7 @@ const DetailsPage = () => {
     setApps([...apps, newApp]);
   };
 
-  // const allApps = use(appsPromise);
-  const allApps = data;
+  const allApps = use(appsPromise);
 
   const { id } = useParams();
 
