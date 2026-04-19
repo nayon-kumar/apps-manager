@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import MyContainer from "../Shared/MyContainer";
 import AppCard from "@/ui/AppCard";
+import Link from "next/link";
 
 const appsPromise = fetch("http://localhost:3000/data.json").then((res) =>
   res.json(),
@@ -20,9 +21,17 @@ const TrendingApps = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {allApps.map((app) => (
+          {allApps.slice(0, 8).map((app) => (
             <AppCard key={app.id} app={app} />
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link
+            href="/apps"
+            className="btn bg-linear-to-br from-[#632EE3] to-[#9F62F2] text-white"
+          >
+            Show All
+          </Link>
         </div>
       </MyContainer>
     </div>
