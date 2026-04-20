@@ -2,11 +2,24 @@
 import MyContainer from "@/components/Shared/MyContainer";
 import { MyContext } from "@/context/AppsContext";
 import InstalledAppCard from "@/ui/InstalledAppCard";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CiFileOn } from "react-icons/ci";
 
 const Installation = () => {
   const { apps, setApps } = useContext(MyContext);
+  const [filter, setFilter] = useState("");
+  const [filteredApps, setFilteredApps] = useState([]);
+
+  useEffect(() => {
+    let sorted = [...apps];
+    if (filter === "low-to-high") {
+      sorted.sort((a, b) => a.size - b.size);
+    } else if (filter === "hight-to-low") {
+      sorted.sort((a, b) => b.size - a.size);
+    }
+    setFilteredApps(sorted);
+  }, [filter, apps]);
+
   return (
     <div className="pt-40 bg-[#F1F5E8]">
       <MyContainer>
@@ -19,16 +32,43 @@ const Installation = () => {
           </p>
         </div>
         <div className="mt-10 pb-20">
-          <p className="font-semibold text-[#001931] text-xl md:text-2xl">
-            ({apps.length}) Apps Found
-          </p>
+          <div className="flex flex-wrap gap-4 items-center justify-between">
+            <p className="font-semibold text-[#001931] text-xl md:text-2xl">
+              ({apps.length}) Apps Found
+            </p>
+            <div className="w-45">
+              <select defaultValue="Sort By" className="select select-neutral">
+                <option disabled={true}>Sort By</option>
+                <option onClick={() => setFilter("")}>Default</option>
+                <option onClick={() => setFilter("low-to-high")}>
+                  Size: Low to High
+                </option>
+                <option onClick={() => setFilter("hight-to-low")}>
+                  Size: High to Low
+                </option>
+              </select>
+            </div>
+          </div>
+
           {apps.length > 0 ? (
             <>
-              <div className="mt-6 flex flex-col gap-4">
-                {apps.map((app) => (
-                  <InstalledAppCard key={app.id} app={app} />
-                ))}
-              </div>
+              {filter === "" ? (
+                <>
+                  <div className="mt-6 flex flex-col gap-4">
+                    {apps.map((app) => (
+                      <InstalledAppCard key={app.id} app={app} />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="mt-6 flex flex-col gap-4">
+                    {filteredApps.map((app) => (
+                      <InstalledAppCard key={app.id} app={app} />
+                    ))}
+                  </div>
+                </>
+              )}
             </>
           ) : (
             <>

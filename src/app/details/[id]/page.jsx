@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import React, { use, useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
+import { TbFileLike } from "react-icons/tb";
 import { toast } from "react-toastify";
 
 const appsPromise = fetch("https://apps-manager-eta.vercel.app/data.json", {
@@ -68,7 +69,7 @@ const DetailsPage = () => {
                 </h3>
               </div>
               <div>
-                <LuDownload size={30} className="text-[#00827A]" />
+                <TbFileLike size={30} className="text-[#00827A]" />
                 <p className="text-[#001931]/80 my-2">Total Reviews</p>
                 <h3 className="text-[#001931] font-extrabold text-2xl md:text-3xl">
                   {expectedApp.reviews}
