@@ -13,12 +13,12 @@ const Navbar = () => {
           {/* Left side */}
           <div className="flex gap-2 items-center">
             <SmallMenu />
-            <Link href="/">
+            <Link className="hidden sm:flex" href="/">
               <Image src={logo} height={40} width={40} alt="Logo" />
             </Link>
             <Link
               href="/"
-              className="bg-linear-to-r from-[#632EE3] to-[#9F62F2] font-bold text-transparent bg-clip-text "
+              className="bg-linear-to-r from-[#632EE3] to-[#9F62F2] font-bold text-transparent bg-clip-text"
             >
               Apps Manager
             </Link>
